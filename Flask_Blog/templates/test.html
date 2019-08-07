@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}
+HomePage
+{% endblock title %}
+{% block body %}
+
+<div class="container" style="padding-top:15px">
+    <form action="{{url_for('upload')}}" method="POST">
+        <div class="form-group">
+            <div class="container">
+                <h3><u>Digital Pins</u></h3>
+                {% for i in range(14) %}
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="dp{{i}}" id="#dp{{i}}">
+                    <label class="form-check-label" for="#dp{{i}}">
+                        Digital Pin {{i}}
+                    </label>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="container">
+                <h3><u>Analog Pins</u></h3>
+                {% for i in range(6) %}
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="ap{{i}}" id="#ap{{i}}">
+                    <label class="form-check-label" for="#ap{{i}}">
+                        Analog Pin {{i}}
+                    </label>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Upload</button>
+    </form>
+</div>
+{% endblock body %}
