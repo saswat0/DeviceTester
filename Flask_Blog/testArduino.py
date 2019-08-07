@@ -29,7 +29,7 @@ def testWrite(digital_pins, analog_pins):
     iterator = util.Iterator(board)
     iterator.start()
     board.pass_time(1)
-    for i in range(13,-1,-1):
+    for i in range(1,14): # 1-13 because there are problems with writing in Digital Pin 0
         pin = board.get_pin(getPin('d',i,'o'))
         if(i in digital_pins):
             pin.write(1)
